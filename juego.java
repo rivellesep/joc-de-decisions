@@ -53,6 +53,7 @@ public class juego {
                 System.out.println(" ");
                 System.out.println("Quants punts vols afegir a força?");
                 var2 = lector.nextInt();
+                lector.nextLine();
                 strength = strength + var2;
                 extraPoints = extraPoints - var2;
                 System.out.println(" ");
@@ -61,6 +62,7 @@ public class juego {
                 System.out.println(" ");
                 System.out.println("Quants punts vols afegir a intel·ligència?");
                 var2 = lector.nextInt();
+                lector.nextLine();
                 intellect = intellect + var2;
                 extraPoints = extraPoints - var2;
                 System.out.println(" ");
@@ -69,6 +71,7 @@ public class juego {
                 System.out.println(" ");
                 System.out.println("Quants punts vols afegir a carisma?");
                 var2 = lector.nextInt();
+                lector.nextLine();
                 charisma = charisma + var2;
                 extraPoints = extraPoints - var2;
                 System.out.println(" ");
@@ -77,6 +80,7 @@ public class juego {
                 System.out.println(" ");
                 System.out.println("Quants punts vols afegir a valentia?");
                 var2 = lector.nextInt();
+                lector.nextLine();
                 courage = courage + var2;
                 extraPoints = extraPoints - var2;
 
@@ -88,15 +92,16 @@ public class juego {
                 System.out.println(" ");
                 System.out.println("La brisa nocturna bufa freda mentre t'endinses en les ruïnes oblidades d'un antic temple. Les pedres desgastades murmuren històries d'herois caiguts i secrets ocults.");
                 System.out.println(" ");
+            //------------------------Nivell 1-------------------------------------------------
                 System.out.println("Després de caminar uns passos, et topes amb una porta coberta de runas brillants que semblen palpitar amb energia magica. A la teva dreta, un passadís estret s'obre en les ombres, com si et convidés a endinsar-te en el desconegut.");
                 System.out.println(" ");
-            //------------------------Nivell 1-------------------------------------------------
                 System.out.println("Que vols fer? (numero)");
                 System.out.println("1. Forçar la porta.");
                 System.out.println("2. Desxifrar les runes.");
                 System.out.println("3. Entrar pel passadís.");
                 System.out.println(" ");
                 var2 = lector.nextInt();
+                lector.nextLine();
                 switch (var2) {
                     case 1:
                         System.out.println("Intentes forçar la porta amb tota la teva força...");
@@ -105,7 +110,7 @@ public class juego {
                             System.out.println("Pases al seguent nivell!");
                         } 
                         else {
-                            System.out.println("Et canses intentant obrir-la i et fas mal. Lo millor seria que marxesis ara que pots...");
+                            System.out.println("Et canses intentant obrir-la i et fas mal. Lo millor seria que marxesis ara que pots... Final neutre.");
                             lector.close();
                             return;
                         }
@@ -141,15 +146,19 @@ public class juego {
                         System.out.println("ERROR:Resposta incoherent");
                         lector.close();
                         return;
-                }      
+                }
+                System.out.println(" ");
+                System.out.println("--Enter per continuar--");
+                lector.nextLine();      
             //------------------------Nivell 2-------------------------------------------
                 System.out.println("Un cavaller espectral s’aixeca davant teu, la seva armadura brilla");
-                System.out.println("Que vols fer?");
+                System.out.println(" ");
+                System.out.println("Que vols fer? (numero)");
                 System.out.println("1. Reptar-lo a duel");
                 System.out.println("2. Dialogar amb ell");
                 System.out.println("3. Mostrar-li el teu coratge");
                 var2 = lector.nextInt();
-
+                lector.nextLine();
                 switch (var2) {
                     case 1:
                         System.out.println("Empunyes la teva arma i ataques!");
@@ -166,6 +175,7 @@ public class juego {
                         System.out.println("Intentes parlar amb ell, buscant empatia i enteniment...");
                         if (charisma >= 6) {
                             System.out.println("El cavaller reconeix la teva noblesa i et deixa passar, donant-te un consell sagrat.");
+                            System.out.println("En l'ultima sala... Tindras que decidir si la teva vida val mes que el tresor...");
                             council = true;
                         }
                         else {
@@ -190,20 +200,84 @@ public class juego {
                         lector.close();
                         return;
                 }
-                lector.nextLine();
+                System.out.println(" ");
                 System.out.println("--Enter per continuar al nivell final--");
                 lector.nextLine();
             //------------------------Nivell final--------------------------------------------------
                 System.out.println("Arribes a la cambra final. Un drac majestuós protegeix un tresor immens.");
-                System.out.println("Que vols fer?");
+                System.out.println(" ");
+                System.out.println("Que vols fer? (numero)");
                 System.out.println("1. Agafar el tresor per la força");
                 System.out.println("2. Utilitzar les paraules");
                 System.out.println("3. Resoldre l’enigma del drac");
                 if (council) {
-                    System.out.println("4. Recordar el consell del cavaller (opció desbloquejada)");
+                    System.out.println("4. Valorar la teva vida... (opció desbloquejada)");
                 }
                 else {
                     System.out.println("4. ???????????????????????? (opció bloquejada)");
+                }
+                var2 = lector.nextInt();
+                lector.nextLine();
+                switch (var2) {
+                    case 1:
+                        System.out.println("T’aboques a l’atac!");
+                        System.out.println(" ");
+                        if (strength >= 10) {
+                            System.out.println("Després d’una batalla èpica, aconsegueixes derrotar el drac i reclames el tresor!");
+                            System.out.println(" ");
+                            System.out.println("---FINAL HEROIC---");
+                        }
+                        else {
+                            System.out.println("El drac et fulmina amb una sola bufada de foc. Mors cremat.");
+                            lector.close();
+                            return;
+                        }
+                        break;
+                    case 2:
+                        System.out.println("Parles amb el drac, intentant persuadir-lo amb les teves paraules...");
+                        System.out.println(" ");
+
+                        if (charisma >= 10) {
+                            System.out.println("El drac reconeix la teva saviesa i et concedeix part del tresor.");
+                            System.out.println(" ");
+                            System.out.println("---FINAL DIPLOMÀTIC---");
+                        }
+                        else {
+                            System.out.println("El drac s’avorreix i et devora.");
+                            lector.close();
+                            return;
+                        }
+                        break;
+                    case 3:
+                        System.out.println("El drac t’ofereix un enigma. Si el resols, et deixarà marxar amb el tresor.");
+                        System.out.println(" ");
+                        if (intellect >= 8) {
+                            System.out.println("Amb enginy i calma, resols l’enigma correctament!");
+                            System.out.println(" ");
+                            System.out.println("El drac, impressionat, et concedeix el tresor.");
+                            System.out.println(" ");
+                            System.out.println("---FINAL INTEL·LECTUAL---");
+                        }
+                        else {
+                            System.out.println("Et confons amb la resposta... El drac riu i et devora sense pietat.");
+                            lector.close();
+                            return;
+                        }
+                        break;
+                    case 4:
+                        if (council) {
+                            System.out.println("Tu: No vull morir per una riquesa que no necessito. Valoro més la meva vida que l’or del teu treso");
+                            System.out.println("Drac: La veritable saviesa no és conquerir, sinó comprendre el valor del que ja es té.");
+                            System.out.println("Amb un somriure gairebé humà, aparta les seves urpes i et deixa el tresor.");
+                            System.out.println(" ");
+                            System.out.println("---FINAL SECRET: LA HUMILITAT ÉS EL VERITABLE TRESOR---");
+                        }
+                        else {
+                            System.out.println("No has desbloquejat aquesta opció, com a consequencia, trigas molt en pensar i el drac t’elimina d’un sol cop.");
+                            lector.close();
+                            return;
+                        }
+                        break;
                 }
                 break;
             case "n":
